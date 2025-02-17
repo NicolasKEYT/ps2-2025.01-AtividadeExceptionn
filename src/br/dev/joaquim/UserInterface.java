@@ -6,10 +6,17 @@ import java.util.Scanner;
 import br.dev.joaquim.bank.BankAccount;
 import br.dev.joaquim.bank.InsufficientFundsException;
 
+/**
+ * Interface de usuário para o sistema bancário.
+ * Gerencia a interação com o usuário através do console.
+ */
 public class UserInterface {
     private Scanner input = new Scanner(System.in);
     private BankAccount account;
 
+    /**
+     * Exibe mensagem de boas-vindas e cria uma nova conta bancária.
+     */
     private void welcome() {
         System.out.println("Bem-vindo ao sistema bancário");
         System.out.print("Vamos criar usa conta, informe seu nome: ");
@@ -19,6 +26,9 @@ public class UserInterface {
         this.account = new BankAccount(accountNumber, 0, holderName);
     }
 
+    /**
+     * Exibe o menu de opções disponíveis.
+     */
     private void showMenu() {
         System.out.println("\n\n-----------------------");
         System.out.println("Escolha uma das opções:");
@@ -29,6 +39,9 @@ public class UserInterface {
         System.out.print("opção > ");
     }
 
+    /**
+     * Inicia a interface do usuário e gerencia o loop principal do programa.
+     */
     public void start() {
         welcome();
         if (account == null)
@@ -62,6 +75,9 @@ public class UserInterface {
         }
     }
 
+    /**
+     * Processa a operação de depósito.
+     */
     private void deposit() {
         System.out.print("\nInforme o valor a ser depositado: ");
         try {
@@ -73,6 +89,9 @@ public class UserInterface {
         }
     }
 
+    /**
+     * Processa a operação de saque.
+     */
     private void withdraw() {
         System.out.print("\nInforme o valor a ser sacado: ");
         try {
@@ -84,16 +103,31 @@ public class UserInterface {
         }
     }
 
+    /**
+     * Lê uma opção do menu informada pelo usuário.
+     * 
+     * @return número da opção escolhida
+     * @throws NumberFormatException se a entrada não for um número válido
+     */
     private int readOption() {
         String choiceString = input.nextLine();
         return Integer.parseInt(choiceString);
     }
 
+    /**
+     * Lê um valor monetário informado pelo usuário.
+     * 
+     * @return valor monetário
+     * @throws NumberFormatException se a entrada não for um número válido
+     */
     private double readValue() {
         String line = input.nextLine();
         return Double.parseDouble(line);
     }
 
+    /**
+     * Aguarda o usuário pressionar ENTER para continuar.
+     */
     private void waitUser() {
         System.out.println("pressione ENTER para continuar...");
         input.nextLine();

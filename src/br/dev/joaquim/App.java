@@ -1,13 +1,17 @@
+
 package br.dev.joaquim;
 
+/**
+ * Classe principal que inicia a aplicação bancária.
+ */
 public class App {
-  /**
-   * Método principal que inicializa a interface do usuário
-   * 
-   * @param args nenhum argumento é requerido para a execução
-   */
-  public static void main(String[] args) {
-    UserInterface main = new UserInterface();
-    main.start();
-  }
+    /**
+     * Método principal que inicia a aplicação.
+     * 
+     * @param args argumentos da linha de comando (não utilizados)
+     */
+    public static void main(String[] args) {
+        UserInterface main = new UserInterface();
+        main.start();
+    }
 }
