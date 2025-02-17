@@ -1,4 +1,3 @@
-
 package br.dev.joaquim.bank;
 
 public class BankAccount {
